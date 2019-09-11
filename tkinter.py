@@ -1,12 +1,9 @@
 from tkinter import *
-import face_recon
 
 def compare():
     image = image_entry.get()
     folder = folder_entry.get()
     print("Image: {} Folder: {}".format(image, folder))
-    sike = face_recon.compare(image, folder)
-    print (sike)
 
 root = Tk() 
 root.title("Face Recognition")
@@ -18,7 +15,7 @@ image_label.grid(row=1, column =1)
 image_entry = Entry(root, bg='white', font=10)
 image_entry.grid(row =1,column=2)
 
-folder_label = Label(root, text="File")
+folder_label = Label(root, text="File", bg='beige')
 folder_label.grid(row=2, column =1)
 folder_entry = Entry(root, bg='white', font=10)
 folder_entry.grid(row =2,column=2)
