@@ -1,24 +1,30 @@
 from tkinter import *
+import face_recon
 
+def compare():
+    image = image_entry.get()
+    folder = folder_entry.get()
+    print("Image: {} Folder: {}".format(image, folder))
+    sike = face_recon.compare(image, folder)
+    print (sike)
 
 root = Tk() 
 root.title("Face Recognition")
 root.geometry('500x600')
 root.configure(background = 'beige')
 
-label = Label(root, text = "Image", bg = 'beige')
-label.grid(row=1, column =1)
-entry = Entry(root, bg='white', font=10)
-entry.grid(row =1,column=2)
+image_label = Label(root, text = "Image", bg = 'beige')
+image_label.grid(row=1, column =1)
+image_entry = Entry(root, bg='white', font=10)
+image_entry.grid(row =1,column=2)
 
-text = Label(root, text="File")
-text.grid(row=2, column =1)
+folder_label = Label(root, text="File")
+folder_label.grid(row=2, column =1)
+folder_entry = Entry(root, bg='white', font=10)
+folder_entry.grid(row =2,column=2)
 
-theentry = Entry(root, bg='white', font=10)
-theentry.grid(row =2,column=2)
-
-button = Button(root, text ="Upload")
-button.grid(row = 2, column = 3)
+upload_button = Button(root, text ="Upload", command=lambda: compare())
+upload_button.grid(row = 2, column = 3)
 
 
 root.mainloop()
